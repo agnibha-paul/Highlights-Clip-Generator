@@ -9,9 +9,7 @@ from tkinter import filedialog, messagebox, ttk
 
 import numpy as np
 
-# =============================================================================
 # ---- Core processing logic -----
-# =============================================================================
 
 HYPE_PATTERNS = [
     r"\bno way\b", r"\blet'?s go\b", r"\boh my god\b", r"\bomg\b",
@@ -192,10 +190,7 @@ def generate_clips(video, clips, length, min_gap, model, outdir, vertical, log=p
     log(f"\nDone! Clips are in: {outdir}\n")
     return True
 
-
-# =============================================================================
 # ------------------------------- Tkinter GUI --------------------------------
-# =============================================================================
 
 class AutoClipGUI(tk.Tk):
     def __init__(self):
@@ -214,7 +209,7 @@ class AutoClipGUI(tk.Tk):
 
         self._build_widgets()
 
-    # ---------------------------------------------------------------- UI --
+    # ------------------------------------ UI ----------------------------
     def _build_widgets(self):
         pad = {"padx": 10, "pady": 6}
 
@@ -279,7 +274,7 @@ class AutoClipGUI(tk.Tk):
         scrollbar.pack(side="right", fill="y", pady=10, padx=(0, 10))
         self.log_text.configure(yscrollcommand=scrollbar.set)
 
-    # ------------------------------------------------------------ actions --
+    # --------------------------- actions ---------------------------------
     def browse_file(self):
         path = filedialog.askopenfilename(
             title="Select a video file",
@@ -355,9 +350,7 @@ class AutoClipGUI(tk.Tk):
         self.after(0, finish)
 
 
-# =============================================================================
 # --------------------------------- Entry point ------------------------------
-# =============================================================================
 
 def main():
     if len(sys.argv) > 1:
